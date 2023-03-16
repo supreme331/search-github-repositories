@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style/style.css">
+    <script defer src="main.js"></script>
+    <title>Поиск GitHub репозиториев</title>
+</head>
+<body>
+<header>
+    <div class="header-logo">
+        <img src="./img/logo.svg" alt="logo">
+    </div>
+</header>
+<section>
+    <div class="repositories__container _container">
+        <div class="repositories__content">
+            <div class="repositories__search-block search-block">
+                <form name="search" action="#">
+                    <div class="search-block__row">
+                        <div class="search-block__search-term">
+                            <input type="text" id="searchTerm" name="searchTerm" placeholder="Что будем искать?">
+                        </div>
+                        <div>
+                            <button class="search-block__btn" type="submit">Искать</button>
+                        </div>
+                    </div>
+                    <div class="search-block__row">
+                        <div class="search-block__choose-language">
+                            <label for="language">Выберите язык (необязательно): </label>
+                            <select class="select" name="language" id="language">
+                                <option value="none"></option>
+                                <option value="javascript">JavaScript</option>
+                                <option value="typescript">TypeScript</option>
+                                <option value="python">Python</option>
+                                <option value="java">Java</option>
+                                <option value="c++">C++</option>
+                                <option value="c#">C#</option>
+                                <option value="php">PHP</option>
+                                <option value="ruby">Ruby</option>
+                            </select>
+                        </div>
+                        <div class="search-block__choose-per-page">
+                            <label for="perPage">Репозиториев на странице: </label>
+                            <select name="perPage" id="perPage">
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                            </select>
+                        </div>
+                        <div class="search-block__choose-sort-by">
+                            <label for="sortBy">Сортировать по: </label>
+                            <select name="sortBy" id="sortBy">
+                                <option value="stars">stars</option>
+                                <option value="forks">forks</option>
+                                <option value="updated">updated</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="repositories__title"><h1></h1></div>
+            <div class="empty"></div>
+            <div class="repositories__items">
+                <ul id="repositories"></ul>
+            </div>
+            <div class="repositories__load-next">
+                <button type="submit" id="load-next">Загрузить еще</button>
+            </div>
+            <div class="loader"></div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

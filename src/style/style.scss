@@ -1,0 +1,397 @@
+@import 'nullstyle';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+$maxWidthContainer: 1194;
+$md1: $maxWidthContainer + 18;
+$md2: 992;
+$md3: 768;
+$md4: 560;
+
+body {
+  position: relative;
+  font-size: 16px;
+  line-height: 130%;
+  font-family: Roboto, sans-serif;
+  color: #f0f6fc;
+  background: #0d1117;
+}
+
+._container {
+  max-width: $maxWidthContainer + px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.repositories__content {
+  margin: 0 auto;
+  padding: 0 88px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+//========================================BUTTON=============================================
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  border-radius: 6px;
+  width: 150px;
+  padding: 10px;
+  font-size: 14px;
+  transition: all ease 0.3s;
+  background: #21262d;
+  color: #f0f6fc;
+  border: 1px solid rgba(240, 246, 252, 0.1);
+  cursor: pointer;
+}
+
+button:hover {
+  background: #30363d;
+  border: 1px solid #8b949e;
+}
+
+button#load-next {
+  display: none;
+  margin-bottom: 20px;
+}
+
+
+//========================================SELECT=============================================
+
+select {
+  background: #f0f6fc;
+  border: 1px solid rgba(240, 246, 252, 0.1);
+  border-radius: 6px;
+}
+
+select:hover {
+  border: 1px solid #8b949e;
+}
+
+
+//========================================NOTHING FOUND=============================================
+
+.empty {
+  display: none;
+  width: 64px;
+  height: 64px;
+  background: url("../img/sad.png") center no-repeat;
+}
+
+//========================================ERROR=============================================
+
+.error {
+  border: 1px solid #ff2323;
+}
+
+.error-message {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  background: #161b22;
+  padding: 2px 10px;
+  cursor: default;
+  border-radius: 6px;
+  border: 1px solid #ff2323;
+  color: #ff2323;
+  font-size: 20px;
+  line-height: 130%;
+  z-index: 5;
+}
+
+//========================================HEADER=============================================
+
+header {
+  background: #161b22;
+  height: 90px;
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  margin-left: 20px;
+  //background: #fff;
+  width: 48px;
+  height: 48px;
+  transition: all ease 0.3s;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.header-logo:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+//========================================LOADER=============================================
+
+.loader {
+  position: fixed;
+  display: none;
+  color: #fff;
+  font-family: Consolas, Menlo, Monaco, monospace;
+  font-weight: bold;
+  font-size: 78px;
+  opacity: 0.8;
+}
+
+.loader:before {
+  content: "{";
+  display: inline-block;
+  animation: pulse 0.4s alternate infinite ease-in-out;
+}
+
+.loader:after {
+  content: "}";
+  display: inline-block;
+  animation: pulse 0.4s 0.3s alternate infinite ease-in-out;
+}
+
+@keyframes pulse {
+  to {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+}
+
+//========================================SEARCH FORM=============================================
+
+.search-block {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: -90px;
+
+  form {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__row:nth-child(2) > * {
+    padding-top: 4px;
+  }
+
+  &__search-term {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    background: #161b22;
+
+    input {
+      width: 100%;
+      height: 28px;
+      padding-left: 15px;
+      background: #f0f6fc;
+      border-radius: 6px;
+      transition: all ease 0.3s;
+    }
+  }
+
+  &__choose-language {
+    padding-right: 15px;
+  }
+
+  &__choose-per-page {
+    padding-right: 15px;
+  }
+}
+
+//========================================REPOSITORIES LIST=============================================
+
+.repositories__items {
+  width: 100%;
+}
+
+.repositories__title {
+  font-size: 26px;
+  line-height: 130%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#repositories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 0 10px;
+
+  li {
+    flex: 0 1 50%;
+    margin: 10px -10px;
+    padding: 20px;
+    background: #21262d;
+    color: #f0f6fc;
+    border-radius: 6px;
+    border: 1px solid rgba(240, 246, 252, 0.1);
+    transition: all ease 0.3s;
+
+    a {
+      display: block;
+      max-width: 437px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 24px;
+      line-height: 130%;
+      color: #c1e2ff;
+      transition: all ease 0.3s;
+    }
+
+    a:hover {
+      color: #9cb0c2;
+    }
+
+    div {
+      padding: 5px 0;
+      max-width: 437px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    span {
+      font-size: 18px;
+      color: #9cb0c2;
+    }
+  }
+
+  li:hover {
+    border: 1px solid rgba(148, 157, 166, 0.45);
+    box-shadow: 4px 4px 10px rgba(148, 157, 166, 0.15);
+  }
+}
+
+
+//========================================MEDIA=============================================
+
+// Max-width 1216px
+@media (max-width: $md1+px) {
+  .repositories__content {
+    padding: 0 18px 0 88px;
+  }
+}
+
+
+// Max-width 992px
+@media (max-width: $md2+px) {
+  .search-block {
+    &__row:nth-child(2) {
+      flex-wrap: wrap;
+      justify-content: start;
+    }
+  }
+}
+
+// Max-width 768px
+@media (max-width: $md3+px) {
+  header {
+    height: 220px;
+    align-items: start;
+  }
+
+  .header-logo {
+    margin: 14px 0 0 10px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .repositories__content {
+    padding: 0 18px 0 44px;
+  }
+
+  .search-block {
+    margin-top: -220px;
+    font-size: 18px;
+
+    form {
+      height: 220px;
+    }
+
+    &__row:nth-child(2) > * {
+      flex: 1 1 100%;
+      padding: 10px 0 0 0;
+    }
+
+    &__search-term {
+      input {
+        height: 40px;
+      }
+    }
+  }
+
+  button {
+    height: 40px;
+  }
+
+  select {
+    height: 40px;
+  }
+
+  .error-message {
+    top: 45px;
+  }
+
+  #repositories {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 100%;
+
+    li {
+      flex: 1 1 100%;
+    }
+  }
+}
+
+// Max-width 560px
+@media (max-width: $md4+px) {
+  header {
+    height: 300px;
+  }
+
+  .search-block {
+    margin-top: -300px;
+
+    form {
+      height: 300px;
+    }
+
+    &__row:nth-child(2) > * {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__choose-language {
+      padding-right: 0;
+    }
+
+    &__choose-per-page {
+      padding-right: 0;
+    }
+
+    &__btn {
+      width: 70px;
+    }
+  }
+
+  select {
+    margin-top: 5px;
+  }
+}
+
