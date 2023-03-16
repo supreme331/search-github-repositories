@@ -113,7 +113,7 @@ function createRepositoryItemElement(item) {
     <a href=${item.html_url} target="_blank">${item.name}</a>
     <div><span>Логин владельца:</span> ${item.owner.login}</div>    
     <div><span>Описание:</span> ${item.description ? item.description : 'не указано'}</div>    
-    <div><img src="./img/star.png" alt="stars"> ${item.stargazers_count}</div>
+    <div><img src="img/star.png" alt="stars"> ${item.stargazers_count}</div>
     <div><span>Язык:</span> ${item.language ? item.language : 'не указан'}</div>
     <div>Обновлен ${(new Date(item.updated_at).toLocaleDateString())}</div>`
 
